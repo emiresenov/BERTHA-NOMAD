@@ -140,6 +140,9 @@ def data_to_zip(data : dict, activated_axes : list):
 
 
 def upload_zip():
+    '''
+    Upload the zipped file to NOMAD Oasis via API 
+    '''
     
     file = '/Users/emiresenov/secret.txt'
     password = ""
@@ -151,14 +154,8 @@ def upload_zip():
     nomad_url = 'http://localhost/nomad-oasis/api/v1/' 
     token = get_authentication_token(nomad_url, username, password)
     upload_id = upload_to_NOMAD(nomad_url, token, 'data/data.zip')
+    publish_upload(nomad_url, token, upload_id)
     
-    last_status_message = check_upload_status(nomad_url, token, upload_id)
-    print(last_status_message)
-    
-    response = publish_upload(nomad_url, token, upload_id)
-    
-    last_status_message = check_upload_status(nomad_url, token, upload_id)
-    print(last_status_message)
     
 
 if __name__ == "__main__":
