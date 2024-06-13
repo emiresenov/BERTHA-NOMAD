@@ -132,11 +132,11 @@ def data_to_zip(data : dict, activated_axes : list):
         }
     }
     
-    with open('data.archive.yaml', 'w') as outfile:
+    with open('data/data.archive.yaml', 'w') as outfile:
         yaml.dump(data, outfile, default_flow_style=False)
         
-    with zipfile.ZipFile('data.zip', 'w') as zipped_f:
-        zipped_f.writestr("data.archive.yaml", yaml.dump(data, default_flow_style=False))
+    with zipfile.ZipFile('data/data.zip', 'w') as zipped_f:
+        zipped_f.writestr("data/data.archive.yaml", yaml.dump(data, default_flow_style=False))
 
 
 def upload_zip():
@@ -150,7 +150,7 @@ def upload_zip():
     username = 'emiresenov'
     nomad_url = 'http://localhost/nomad-oasis/api/v1/' 
     token = get_authentication_token(nomad_url, username, password)
-    upload_id = upload_to_NOMAD(nomad_url, token, 'data.zip')
+    upload_id = upload_to_NOMAD(nomad_url, token, 'data/data.zip')
     
     last_status_message = check_upload_status(nomad_url, token, upload_id)
     print(last_status_message)
@@ -163,7 +163,7 @@ def upload_zip():
 
 if __name__ == "__main__":
     
-    with open('data.json') as f:
+    with open('data/data.json') as f:
         data = json.load(f)
     
     dic = data[0]
