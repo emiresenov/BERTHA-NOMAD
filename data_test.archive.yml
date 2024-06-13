@@ -2,7 +2,7 @@ data:
   description: Sputter setup with Ba, Zr and Sn for development of first ML algorithms,
     BaZrSn_002, 15x15 grid of power pressure combinations for Sn
   lab_id: "Uppsala University \xC5utomate-Solar"
-  m_def: ../uploads/VqPwTxNlScSdvgUOcF21Ag/raw/automate-solar_schema_latest.archive.yaml#/definitions/section_definitions/AutomateSolarSputterDeposition
+  m_def: ../uploads/1WE7CfSoQbS8LidbT0XLfw/raw/automate-solar_schema.archive.yaml#/definitions/section_definitions/AutomateSolarSputterDeposition
   name: BaZrSn_002_006_1
   quantity: null
   steps:
