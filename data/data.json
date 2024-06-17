@@ -7,19 +7,18 @@
   },
   "campaign_id": "C007", 
   "campaign_description": "Testing Boundary Finder", 
-  "operator_name": "Jon",  X
+  "operator_name": "Jon",
   "series_id": "C007_S002", 
   "series_description": "testing save ok", 
-  "recipe_name": "none", X
-  "sdl_algorithm": "EE_LearnMinimumRate", X
+  "recipe_name": "none",
+  "sdl_algorithm": "EE_LearnMinimumRate",
   "samples_produced": false, 
-  "qcms_active": true, use to decide whether to store QCM time series or not
+  "qcms_active": true,
   "source_1_material": "Zr", 
   "source_1_supply": 1,
   "source_1_mode": "pulsed DC",
   "source_1_ramp_rate_[W/s]": 10,
   "source_2_material": "CuS",
-  add target IDs?
   "source_2_supply": 2,
   "source_2_mode": "pulsed DC",
   "source_2_ramp_rate_[W/s]": 5,
@@ -41,14 +40,14 @@
   "source_6_ramp_rate_[W/s]": 5,
   "sputter gas": "Ar",
   "qcm_crystal_type": "KJLC LI008010G10 6MHz Gold", 
-  "series_start_datetime": "5.36751669E-9", correct this (Jon)
-  "base_pressure [Torr]": "2024-06-14 08:05:43.028049", check datetime is in the schema?
+  "series_start_datetime": "2024-06-14 08:05:43.028049",
+  "base_pressure [Torr]": "5.36751669E-9",
   "presputter_description": "Start of series: all targets presputtered for 30 seconds. First run: Presputtered for 30 s, with voltages reaching expected values", 
-  "presputter_time_[s]": 30, X
+  "presputter_time_[s]": 30,
   "run_id": "C007_S002_1",
-  "number_of_steps": 1, use to define datafile, don't need to store, be ready to store multiple steps though at present all our runs just have one.
+  "number_of_steps": 1,
   "substrate_id": "none",
-  "source_1_set_power_[W]": 21, store only active ones
+  "source_1_set_power_[W]": 21, 
   "source_2_set_power_[W]": 0, 
   "source_3_set_power_[W]": 0,
   "source_4_set_power_[W]": 0,
@@ -56,8 +55,8 @@
   "source_6_set_power_[W]": 0,
   "set_pressure_[mTorr]": 1,
   "dwell_time_[s]": 15,
-  "settled": true, X
-  "settling_time_[s]": 0, X
+  "settled": true,
+  "settling_time_[s]": 0, 
   "time_[s]": [
     0,
     0.107,
@@ -1199,9 +1198,9 @@
   "qcm_1_lifetime_[%]": 72.9932,
   "qcm_1_frequency_[Hz]_mean": 5918981.694792853,
   "qcm_1_frequency_rate_[/s2]": -0.286014,
-  "qcm_1_frequency_rate_[/s2]_error": 0.003011, maybe need to add
-  "qcm_1_mass_rate_[g/cm2s]": 3.537449257069329e-9, maybe need to add
-  "qcm_1_mass_rate_[g/cm2s]_error": 3.7241016560030734e-11, maybe need to add
+  "qcm_1_frequency_rate_[/s2]_error": 0.003011,
+  "qcm_1_mass_rate_[g/cm2s]": 3.537449257069329e-9,
+  "qcm_1_mass_rate_[g/cm2s]_error": 3.7241016560030734e-11,
   "qcm_2_lifetime_[%]": 45.4536,
   "qcm_2_frequency_[Hz]_mean": 5836360.890045037,
   "qcm_2_frequency_rate_[/s2]": -0.006918,
