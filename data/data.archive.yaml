@@ -1,7 +1,7 @@
 data:
   description: Testing Boundary Finder, C007, testing save ok
   lab_id: "Uppsala University \xC5utomate-Solar"
-  m_def: ../uploads/1WE7CfSoQbS8LidbT0XLfw/raw/automate-solar_schema.archive.yaml#/definitions/section_definitions/AutomateSolarSputterDeposition
+  m_def: ../uploads/CCiOrohGTgmAxPK_PIc31Q/raw/automate-solar_schema.archive.yaml#/definitions/section_definitions/AutomateSolarSputterDeposition
   name: C007_S002
   quantity: null
   steps:
@@ -305,9 +305,10 @@ data:
         remaining_lifetime:
           value: 72.9932
         sensor_data:
-          error: 0.003011
+          error: null
           mean: 5918981.694792853
           slope: -0.286014
+          slope_error: 0.003011
           values:
           - 5918983.813860275
           - 5918983.813860275
@@ -458,9 +459,10 @@ data:
         remaining_lifetime:
           value: 45.4536
         sensor_data:
-          error: 0.000213
+          error: null
           mean: 5836360.890045037
           slope: -0.006918
+          slope_error: 0.000213
           values:
           - 5836360.948408654
           - 5836360.948408654
@@ -611,9 +613,10 @@ data:
         remaining_lifetime:
           value: 76.2305
         sensor_data:
-          error: 0.005103
+          error: null
           mean: 5928691.518086488
           slope: -0.088842
+          slope_error: 0.005103
           values:
           - 5928692.296434615
           - 5928692.296434615
@@ -1059,8 +1062,9 @@ data:
           - 12.611
           - 12.611
         power_supply:
-          frequency: null
           instrument_id: 1
+          ramp_rate: 10
+          supply_type: pulsed DC
         setpoints:
           set_current: null
           set_power: 21

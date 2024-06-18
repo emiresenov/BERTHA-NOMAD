@@ -22,7 +22,7 @@ definitions:
 
     TimeSeriesData: #reusable for all time series data
       quantities:
-        times: #[from MongoDB]: Time_[s] 
+        times:
           type: float
           shape: ['*']
           unit: second
@@ -56,42 +56,45 @@ definitions:
         crystal_info:
           section:
             quantities:
-              info: #[from MongoDB]: none yet, but we will need to add this info to the campaign info so it can be uploaded to NOMAD
+              info: # NA
                 description: e.g. contact materials, part number etc
                 type: str
-              resonant_frequency: #[from MongoDB]: none yet, but we will need to add this info to the campaign info so it can be uploaded to NOMAD
+              resonant_frequency: # NA
                 type: float
                 unit: hertz
         sensor_data:
           section:
             base_section: "#/TimeSeriesData"
             quantities:
-              values: #[from MongoDB]: QCM_1_frequency_[Hz] **OBS repeat for each sensor 1-3. Ask Hampus how to do that
+              values: #[from MongoDB]: qcm_i_frequency_[Hz], repeat for each sensor 1-3
                 shape: ['*']
                 type: float
                 unit: hertz
-              mean: #[from MongoDB]: NA
+              mean: # qcm_i frequency hz mean
                 type: float 
                 unit: hertz
-              error: #[from MongoDB]:  none yet, but we will need to add this 
+              error: # NA
                 type: float
                 unit: hertz
-              slope: #[from MongoDB]: QCM_1_rate_[df/dt]  **OBS repeat for each sensor 1-3
+              slope: # qcm_i frequency_rate_[/s2]
+                type: float
+                unit: hertz / second
+              slope_error: # qcm_i frequency_rate_[/s2]_error
                 type: float
                 unit: hertz / second
         remaining_lifetime:
           section:
             quantities:
-              value: #[from MongoDB]: QCM_1_Q_[%]  **OBS repeat for each sensor 1-3
+              value: # qcm_i lifetime %
                 type: float
               
         mass_deposition_rate:
           section:
             quantities:
-              value: #[from MongoDB]: none yet, but we will need to calculate and this
+              value: # qcm_i mass rate gm/cm2
                 type: float
                 unit: gram / meter**2
-              error: #[from MongoDB]: none yet, but we will need to calculate and this
+              error: # qcm_i mass rate gm/cm2 error
                 type: float
                 unit: gram / meter**2
     
@@ -103,29 +106,29 @@ definitions:
           section:  
             base_section: "#/TimeSeriesData"
             quantities: 
-              values: #[from MongoDB]: Gas_flow_[sccm]
+              values: #[from MongoDB]: gas_flow_[sccm]
                 shape: ['*']
                 type: float  
                 unit: meter**3 / second
-              mean: #[from MongoDB]: Gas_flow_[sccm]_Mean
+              mean: #[from MongoDB]: gas_flow_[sccm]_mean
                 type: float 
                 unit: meter**3
-              error: #[from MongoDB]: Gas_flow_[sccm]_STD
+              error: #[from MongoDB]: gas_flow_[sccm]_std
                 type: float
                 unit: meter**3
 
             sub_sections:
               gas:
                 section: nomad.datamodel.metainfo.basesections.PureSubstanceSection
-                #[from MongoDB]: Sputter gas ***this is just a string though, whereas in NOMAD there are gas objects corresponding to real chemical. Ask Hampus how we go from our string "Ar" in this case, to a gas object in NOMADs parlance. 
+                # pubchem thing, ask Hampus again
 
         setpoints: 
           section:
             quantities:
-              pressure: #[from MongoDB]: Pressure_setpoint_[mTorr]
+              pressure: # set_pressure_[mTorr]
                 type: float
                 unit: pascal
-              flow: #[from MongoDB]: none yet but we need to add it
+              flow: # NA
                 type: float
                 unit: meter**3 / second
 
@@ -133,20 +136,20 @@ definitions:
           section:
             base_section: "#/TimeSeriesData"
             quantities:
-              values: #[from MongoDB]: Actual_pressure_[mTorr]
+              values: #[from MongoDB]: act_pressure_[mTorr]
                 shape: ['*']
                 type: float
                 unit: pascal
-              mean: #[from MongoDB]: Actual_pressure_[mTorr]_mean
+              mean: #[from MongoDB]: act_pressure_[mTorr]_mean
                 type: float
                 unit: pascal
-              error: #[from MongoDB]: Actual_pressure_[mTorr]_STD
+              error: #[from MongoDB]: act_pressure_[mTorr]_std
                 type: float
                 unit: pascal
           
         
         sensors:
-          section: "#/QCMSensor" #Ask Hampus how this works in practice, we will add three sensors QCM1-3
+          section: "#/QCMSensor"
           repeats: true 
 
     SputterTarget: # these will be created in NOMAD as separate entities. So we would address them with a reference of some kind
@@ -173,13 +176,13 @@ definitions:
         setpoints: 
           section:
             quantities:
-              set_power: #[from MongoDB]: Power_Ax1_setpoint_[W] ***OBS repeat for x magnetrons
+              set_power: # source i set power 
                 type: float
                 unit: watt
-              set_voltage: #[from MongoDB]: NA
+              set_voltage: # NA
                 type: float
                 unit: volt
-              set_current: #[from MongoDB]: NA
+              set_current: # NA
                 type: float
                 unit: ampere 
         
@@ -187,55 +190,40 @@ definitions:
           section:
             base_section: "#/TimeSeriesData"
             quantities:
-              values: #[from MongoDB]: Actual_Power_Ax1_[W] ***OBS repeat for x magnetrons
+              values: # source i act power
                 shape: ['*']
                 type: float
                 unit: watt
-              mean: 
+              mean: # source i act power mean
                 type: float
                 unit: watt
-              error: 
+              error: # source i act power std
                 type: float
                 unit: watt
         voltage:
           section:
             base_section: "#/TimeSeriesData"
-            # [from MongoDB]: Voltage_Ax1_[W] ***OBS repeat for x magnetrons
 
-        current:
-          section:
-            base_section: "#/TimeSeriesData"
-            quantities:
-              values: # [from MongoDB]: none yet but we need to add it
-                shape: ['*']
-                type: float
-                unit: ampere
-              mean: # [from MongoDB]: none yet but we need to add it
-                type: float
-                unit: ampere
-              error: # [from MongoDB]: none yet but we need to add it
-                type: float
-                unit: ampere
          
         power_supply:
           section:
             quantities:
-              instrument_id: # [from MongoDB]: Power Supply Ax1 ***OBS repeat for x magnetrons
+              instrument_id: # source i power supply
                 type: str 
-                description: identifier for a specific instrument #could become a reference to an actual object (later)
-              supply_type: # [from MongoDB]: none yet but we need to add it
+                description: identifier for a specific instrument # could become a reference to an actual object (later)
+              supply_type: # source i mode
                 type: str
                 description: e.g. RF or pulsed DC 
-              frequency: # [from MongoDB]: Power Supply Ax 1 Pulse Rate
-                type: int
-                unit: hertz
+              ramp_rate: # source i ramp rate
+                type: float
+                unit: watt / second
                 description: pulse frequency of source   
 
     SputterSource: 
       base_sections:
         - nomad_material_processing.physical_vapor_deposition.PVDSource
       sub_sections:
-        material:  # [from MongoDB]: Material Ax1 (and 2 and 3), converting from str to the NOMAD material object 
+        material:  # source i material, converting from str to the NOMAD material object 
           section: "#/SputterTargetReference"
         vapor_source:
           section: "#Magnetron"
@@ -243,20 +231,20 @@ definitions:
           section:  
             description: information on the geometrical origin, direction and spread of the vapor plume
             quantities:
-              shape: # [from MongoDB]: to be added to campaign/system info
+              shape: # NA
                 type: str
                 description: info on e.g. what model is used
                 a_eln:
                   component: RichTextEditQuantity
-              n_parameter: # [from MongoDB]: not yet, but to be calculated and added
+              n_parameter: # NA
                 type: float
                 description: in the Knudsen model, the exponent defining the spread of the plume
-              A_parameter: # [from MongoDB]: not yet, but to be calculated and added
+              A_parameter: # NA
                 type: float
                 description: in the Knudsen model, the coefficient defining the flux intensity
             sub_sections:
               origin:
-                section: "#/Position" # [from MongoDB]: not yet, but to be calculated and added
+                section: "#/Position" # NA
                 description: the location of origin and the direction of the vapour plume 
 
     AutomateSolarSputterDeposition:
@@ -265,9 +253,9 @@ definitions:
       - nomad.datamodel.data.EntryData
       
       # SputterDeposition has the following quantities:
-      # quantity <-- [from MongoDB]: 
-      # name <-- Run_ID
-      # datetime <-- we have date, not sure about time... (we have time for series start, not run start)
+      # quantity <-- NA
+      # name <-- series ID
+      # datetime <-- to be added in the lab
       # lab_id <-- "Uppsala University Åutomate-Solar"
       # description <-- Campaign description + campaign code + Series description
 
@@ -275,11 +263,11 @@ definitions:
         preparation:
           section:
             quantities:
-              base_pressure:  # [from MongoDB]: Base_pressure_(start)_[Torr]
+              base_pressure:  # set_pressure_[mTorr]
                 type: float
                 unit: pascal
                 description: the base pressure of the vacuum chamber prior to initating an experiment  
-              presputtering: # [from MongoDB]: Pre-sputter_description
+              presputtering: # f'{dic["campaign_description"]}, {dic["campaign_id"]}, {dic["series_description"]}'
                 type: str  
 
         steps:
