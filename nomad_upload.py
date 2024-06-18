@@ -134,7 +134,7 @@ def data_to_zip(data : dict, activated_axes : list):
                     'duration' : dic['dwell_time_[s]'],
                     'start_time' : dic['datetime']['$date'],
                     'creates_new_thin_film' : dic['samples_produced'],
-                    'sources' : _getYamlMagnetrons(dic, [True,False,False,False,False,False]),
+                    'sources' : _getYamlMagnetrons(dic, activated_axes),
                     'environment' : _getYamlEnv(dic)
                 }
             ]
