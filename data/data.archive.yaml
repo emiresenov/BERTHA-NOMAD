@@ -1,11 +1,16 @@
 data:
+  datetime: '2024-06-14T08:09:18.224Z'
   description: Testing Boundary Finder, C007, testing save ok
   lab_id: "Uppsala University \xC5utomate-Solar"
+  location: Uppsala, Sweden
   m_def: ../uploads/CCiOrohGTgmAxPK_PIc31Q/raw/automate-solar_schema.archive.yaml#/definitions/section_definitions/AutomateSolarSputterDeposition
+  method: Magnetron Sputtering
   name: C007_S002
   quantity: null
   steps:
-  - environment:
+  - creates_new_thin_film: false
+    duration: 15
+    environment:
       gas_flow:
         error: 0.048
         gas: Here we do the pubchem thing
@@ -761,6 +766,7 @@ data:
       setpoints:
         flow: null
         pressure: 1
+    name: C007_S002, Step 1
     sources:
     - material:
         lab_id: null
@@ -1214,3 +1220,4 @@ data:
           - 886.412
           - 886.32
           - 886.32
+    start_time: '2024-06-14T08:09:18.224Z'
