@@ -255,7 +255,7 @@ definitions:
       # SputterDeposition has the following quantities:
       # quantity <-- NA
       # name <-- series ID
-      # datetime <-- to be added in the lab
+      # datetime <-- TODO: add when trying in the lab
       # lab_id <-- "Uppsala University Åutomate-Solar"
       # description <-- Campaign description + campaign code + Series description
 
@@ -290,7 +290,7 @@ definitions:
       base_sections:
         - nomad_material_processing.physical_vapor_deposition.VaporDepositionStep
       # SputterDeposition has the following quantities:
-      # quantity <-- [from MongoDB]: 
+      # quantity <-- NA
       # name <-- Run_ID + Step_number 
       # start_time <-- first value from time series
       # comment <-- NA
