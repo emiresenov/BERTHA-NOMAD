@@ -2,6 +2,7 @@ import json
 from Nomad_API import *
 import yaml
 import zipfile
+import time
 
 
 def _getPoweredAxes(arr):
@@ -122,7 +123,7 @@ def data_to_zip(data : dict, activated_axes : list):
     data = {'data' : {
             'm_def' : "../uploads/M6lUZptaRcmSe76HUNRt4A/raw/automate-solar_schema.archive.yaml#/definitions/section_definitions/AutomateSolarSputterDeposition",
             'quantity' : None,
-            'name' : dic['series_id'],
+            'name' : dic['run_id'],
             'lab_id' : "Uppsala University Åutomate-Solar",
             'datetime' : dic['datetime']['$date'],
             'location' : "Uppsala, Sweden",
@@ -130,7 +131,7 @@ def data_to_zip(data : dict, activated_axes : list):
             'description' : f'{dic["campaign_description"]}, {dic["campaign_id"]}, {dic["series_description"]}',
             'steps' : [
                 {
-                    'name' : f'{dic["series_id"]}, Step 1', # Change this to dynamic when we have more steps
+                    'name' : f'{dic["run_id"]}, Step 1', # Change this to dynamic when we have more steps
                     'duration' : dic['dwell_time_[s]'],
                     'start_time' : dic['datetime']['$date'],
                     'creates_new_thin_film' : dic['samples_produced'],
@@ -163,8 +164,13 @@ def upload_zip():
     nomad_url = 'http://localhost/nomad-oasis/api/v1/' 
     token = get_authentication_token(nomad_url, username, password)
     upload_id = upload_to_NOMAD(nomad_url, token, 'data/data.zip')
-    publish_upload(nomad_url, token, upload_id)
     
+    # Give max 10 seconds for Nomad API to publish
+    t_end = time.time() + 10
+    while time.time() < t_end:
+        if publish_upload(nomad_url, token, upload_id).ok:
+            print("Data entry published to NOMAD")
+            break
     
 
 if __name__ == "__main__":

@@ -5,7 +5,7 @@ data:
   location: Uppsala, Sweden
   m_def: ../uploads/M6lUZptaRcmSe76HUNRt4A/raw/automate-solar_schema.archive.yaml#/definitions/section_definitions/AutomateSolarSputterDeposition
   method: Magnetron Sputtering
-  name: C007_S002
+  name: C007_S002_1
   quantity: null
   steps:
   - creates_new_thin_film: false
@@ -766,7 +766,7 @@ data:
       setpoints:
         flow: null
         pressure: 1
-    name: C007_S002, Step 1
+    name: C007_S002_1, Step 1
     sources:
     - material:
         lab_id: null
