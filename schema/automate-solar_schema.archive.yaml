@@ -255,7 +255,7 @@ definitions:
       # SputterDeposition has the following quantities:
       # quantity <-- NA
       # name <-- series ID
-      # datetime <-- TODO: add when trying in the lab
+      # datetime
       # lab_id <-- "Uppsala University Åutomate-Solar"
       # description <-- Campaign description + campaign code + Series description
 
@@ -292,7 +292,7 @@ definitions:
       # SputterDeposition has the following quantities:
       # quantity <-- NA
       # name <-- Run_ID + Step_number 
-      # start_time <-- first value from time series
+      # start_time
       # comment <-- NA
       # creates_new_thin_film <-- Sample_produced
       # duration <-- Dwell_time[s]
