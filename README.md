@@ -41,8 +41,18 @@ Again, the NOMAD docs are best for understanding data structures and creating cu
 
 Now you're ready to upload. Again, the NOMAD docs provide a general understanding of how uploads should be handled.
 
-In our case, we're building a self-driving lab, which means that uploads are processed automatically. We also have a separate schema. 
+In our case, we're building a self-driving lab, meaning uploads are processed automatically. We also have a separate schema. 
 Therefore, we first publish the schema separately and use its upload ID as a static reference in our upload files, as mentioned in point 2 of [The setup](#the-setup).
+I included the schema in this repository to show it, but it is not used in any of our scripts.
+
+## Remarks
+- Dumping the files is unnecessary/superfluous. Ideally, we would like to push data directly to NOMAD via the API. Uploading a ZIP file
+was the only thing that worked for us given NOMAD's documentation. Consider improving this.
+- Since we are deploying a self-driving lab, we are taking extra steps to automate the upload process.
+If this is not your intended use case, consider using NOMAD's drag-and-drop functionality and cutting out the automation steps.
+- In the notebooks folder, I cover how data uploaded to NOMAD can be retrieved. While I was developing this, we transitioned from using a local database to NOMAD in our setup.
+As such, we only automated nomad uploading but not processing data retrieved from NOMAD. NOMAD offers Python packages for parsing data. This might be worth looking into.
+I left the notebooks as examples of how to download our uploaded entries from NOMAD. 
 
 
 
