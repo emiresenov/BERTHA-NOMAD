@@ -159,7 +159,6 @@ def upload_zip():
     Upload the zipped file to NOMAD Oasis via API 
     '''
     
-    # Get super secret password from super secret location (enter password directly if you don't plan on uploading to public github)
     file = '/Users/emiresenov/secret.txt'
     password = ""
     with open(file, "r") as text:
