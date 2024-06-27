@@ -3,7 +3,7 @@ data:
   description: Testing Boundary Finder, C007, testing save ok
   lab_id: "Uppsala University \xC5utomate-Solar"
   location: Uppsala, Sweden
-  m_def: ../uploads/M6lUZptaRcmSe76HUNRt4A/raw/automate-solar_schema.archive.yaml#/definitions/section_definitions/AutomateSolarSputterDeposition
+  m_def: ../uploads/vI_FnRuhR8Seh1nGrXttWw/raw/automate-solar_schema.archive.yaml#/definitions/section_definitions/AutomateSolarSputterDeposition
   method: Magnetron Sputtering
   name: C007_S002_1
   quantity: null
@@ -772,10 +772,6 @@ data:
         lab_id: null
         name: Zr
       name: Zr
-      position:
-        center_normal: null
-        center_xyz: null
-        rotation: null
       vapor_source:
         current:
           error: null
