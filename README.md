@@ -14,7 +14,7 @@ See `data_to_zip` in [nomad_upload.py](nomad_upload.py).
 3. We upload the zipped file to NOMAD. See `upload_zip` in [nomad_upload.py](nomad_upload.py).
 
 
-## How to get things up and running
+## Getting started
 
 ### 1. Access NOMAD
 
@@ -23,11 +23,28 @@ The [NOMAD documentation](https://link-url-here.org](https://nomad-lab.eu/prod/v
 
 ### 2. Define a schema (optional)
 
-A schema adds functionality to an ELN (the thing that displays the NOMAD entry). If there is no schema, there won't be much more than raw data in your uploads.
+A schema adds functionality to an ELN (the thing that displays the NOMAD entry). The schema defines the structure of your data files. If there is no schema, there won't be much more than raw data in your uploads.
 
 You can use predefined schemas provided by NOMAD or create your own. In this project, we created a schema that inherits properties from a more general physical vapor deposition schema provided by NOMAD. 
 You can find it in [automate-solar_schema.archive.yaml](schema/automate-solar_schema.archive.yaml). 
 
-If the section references give you a headache, I created the following...
+If the nested section references give you a headache, I created the following image:
 
-# TBC
+<p align="center">
+  <img src="doc/hierarchy.png" />
+</p>
+
+
+Again, the NOMAD docs are best for understanding data structures and creating custom schemas. Ours is just an example.
+
+### Upload data
+
+Now you're ready to upload. Again, the NOMAD docs provide a general understanding of how uploads should be handled.
+
+In our case, we're building a self-driving lab, which means that uploads are processed automatically. We also have a separate schema. 
+Therefore, we first publish the schema separately and use its upload ID as a static reference in our upload files, as mentioned in point 2 of [The setup](#the-setup).
+
+
+
+
+
