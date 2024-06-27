@@ -41,8 +41,8 @@ Again, the NOMAD docs are best for understanding data structures and creating cu
 
 Now you're ready to upload. Again, the NOMAD docs provide a general understanding of how uploads should be handled.
 
-In our case, we're building a self-driving lab, meaning uploads are processed automatically. We also have a separate schema. 
-Therefore, we first publish the schema separately and use its upload ID as a static reference in our upload files, as mentioned in point 2 of [The setup](#the-setup).
+In our case, we're building a self-driving lab, meaning uploads are processed automatically. We also have a custom schema separate from our data files. 
+Therefore, we first publish the schema and use its upload ID as a static reference in our upload files, as mentioned in point 2 of [The setup](#the-setup).
 I included the schema in this repository to show it, but it is not used in any of our scripts.
 
 ## Remarks
