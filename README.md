@@ -1,6 +1,6 @@
 # Documentation for Jens & Co
 
-This repo shows how we incorporated NOMAD in our self-driving magnetron sputtering lab setup. You can use this repository as an example to supplement the [NOMAD documentation](https://link-url-here.org](https://nomad-lab.eu/prod/v1/staging/docs/)).
+This repo shows how we incorporated NOMAD in our self-driving magnetron sputtering lab setup; you can use it as an example to supplement the [NOMAD documentation](https://link-url-here.org](https://nomad-lab.eu/prod/v1/staging/docs/)).
 
 
 ## The setup
@@ -47,6 +47,9 @@ Now you're ready to upload, see NOMAD docs.
 In our case, we're building a self-driving lab, meaning uploads are processed automatically. We also have a custom schema separate from our data files. 
 Therefore, we first manually publish the schema to NOMAD and use its upload ID as a static reference in our generated upload files, as mentioned in point 2 of [The setup](#the-setup).
 I included the schema in this repository to show it, but it is not used in any of our scripts.
+
+If you're using a schema, the uploaded data files must match the descriptive fields in the schema. Furthermore, NOMAD has rather strict requirements for file formatting and throws very cryptic error messages
+when files are invalid (something they intend to fix). Therefore, I would suggest starting with small, simple files and scaling up the complexity iteratively.
 
 ## Remarks
 - Dumping the upload files locally before uploading is unnecessary/superfluous. Ideally, we would like to push data directly to NOMAD via the API. Uploading a ZIP file
