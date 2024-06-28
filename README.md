@@ -54,7 +54,7 @@ when files are invalid (something they intend to fix). Therefore, I would sugges
 ## Remarks
 - Dumping the upload files locally before uploading is unnecessary/superfluous. Ideally, we would like to push data directly to NOMAD via the API. Uploading a ZIP file
 was the only thing that worked for us given NOMAD's documentation. Consider improving this.
-- Since we are deploying a self-driving lab, we are taking extra steps to automate the upload process. Specifically, in the setup we have in the lab, we publish an entry in each experiment iteration.
+- Since we are deploying a self-driving lab, we are taking extra steps to automate the upload process. Specifically, in the setup we have in the lab, we automatically publish an entry via code in each experiment iteration.
 If this is not your intended use case, consider using NOMAD's drag-and-drop functionality and cutting out the automation steps.
 - In the notebooks folder, I cover how data uploaded to NOMAD can be retrieved. While I was developing this, we transitioned from using a local database to NOMAD in our setup, and we only automated NOMAD publishing.
 We were not ready to automate data processing with NOMAD at the time, so I left the notebooks as examples of how to download our uploaded entries.
