@@ -56,7 +56,7 @@ when files are invalid (something they intend to fix). Therefore, I would sugges
 To get a quick overview of what the files are doing:
 
 - [Nomad_API.py](Nomad_API.py) This is copied from the [NOMAD programmating tutorial](https://nomad-lab.eu/prod/v1/staging/docs/howto/programmatic/publish_python.html).
-- [nomad_upload.py](nomad_upload.py) This file translates our raw experiment data to the required YAML format defined by our schema. The two functions `data_to_zip` and `upload_zip` are the only entry points. The rest are helper functions.
+- [nomad_upload.py](nomad_upload.py) This file translates our raw experiment data to the required YAML format defined by our schema and then uploads it. The two functions `data_to_zip` and `upload_zip` are the only entry points. The rest are helper functions.
 Note that nothing special is going on in `data_to_zip`, so don't fixate on figuring out the meaning of the function and its subfunctions. This is just a hardcoded way to generate valid NOMAD files in YAML format as defined by our schema. To see the output, look at [data.archive.yaml](data/data.archive.yaml).
 - [/schema](/schema) Contains our schema for you to look at. As stated, we upload this schema separately from the data and use its upload ID provided by NOMAD after publishing as a static reference in our generated data files. None of our scripts here use this file.
 - [/notebooks](/notebooks) Contains two standalone notebooks demonstrating how to download our data files once they have been published to NOMAD.
