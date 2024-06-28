@@ -53,9 +53,9 @@ I included the schema in this repository to show it, but it is not used in any o
 was the only thing that worked for us given NOMAD's documentation. Consider improving this.
 - Since we are deploying a self-driving lab, we are taking extra steps to automate the upload process. Specifically, in the setup we have in the lab, we publish an entry in each experiment iteration.
 If this is not your intended use case, consider using NOMAD's drag-and-drop functionality and cutting out the automation steps.
-- In the notebooks folder, I cover how data uploaded to NOMAD can be retrieved. While I was developing this, we transitioned from using a local database to NOMAD in our setup.
-As such, we only automated uploads but not processing with data retrieved from NOMAD. NOMAD offers Python packages for parsing data, which might be worth looking into.
-I left the notebooks as examples of how to download our uploaded entries from NOMAD. 
+- In the notebooks folder, I cover how data uploaded to NOMAD can be retrieved. While I was developing this, we transitioned from using a local database to NOMAD in our setup, and we only automated NOMAD publishing.
+We were not ready to automate data processing with NOMAD at the time, so I left the notebooks as examples of how to download our uploaded entries.
+NOMAD offers Python packages for parsing data, which might be worth investigating depending on your data processing demands.
 
 
 
