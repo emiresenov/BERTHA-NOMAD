@@ -4,8 +4,7 @@ import yaml
 import zipfile
 import time
 
-# Turns the list of true booleans to numbered strings for composing strings in other functions.
-# If bool is false, we do nothing. We don't include that magnetron's data in the nomad files. 
+
 def _getPoweredAxes(arr):
     axes = []
     for i in range(len(arr)):
@@ -13,14 +12,12 @@ def _getPoweredAxes(arr):
             axes.append(str(i+1))
     return axes
 
-# Returns a list of dictionaries in yaml format compliant with our schema.
-# Each dictionary contains all the information we want to include for one magnetron, as outlined by our schema
+
 def _getYamlMagnetrons(dic, power_axes):
     axes = _getPoweredAxes(power_axes)
     return [_getYamlMagnetron(dic, axis) for axis in axes]
 
 
-# Returns magnetron information in dictionary yaml format for magnetron i (i = axis, a number from 1-6 in string format)
 def _getYamlMagnetron(dic, axis):
     magnetron = {
         'name' : dic['source_' + axis + '_material'],
@@ -62,7 +59,6 @@ def _getYamlMagnetron(dic, axis):
     return magnetron
 
 
-# Same thing... qcm data in dictionary yaml format for qcm i=1,2,3 (always 3 qcms if qcms are active)
 def _getYamlQCM(dic, i):
     prefix = 'qcm_' + str(i) + '_'
     yamlQCM = {
@@ -88,7 +84,6 @@ def _getYamlQCM(dic, i):
     return yamlQCM
 
 
-# Returns environment data in dictionary yaml format
 def _getYamlEnv(dic):
     environment = {
         'gas_flow' : {
