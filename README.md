@@ -40,7 +40,7 @@ If the nested section references give you a headache, I created the following im
 
 Again, the NOMAD docs are best for understanding data structures and creating custom schemas. Ours is just an example.
 
-### Upload data
+### 3. Upload data
 
 Now you're ready to upload, see NOMAD docs.
 
