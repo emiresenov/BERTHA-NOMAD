@@ -58,7 +58,7 @@ To get a quick overview of what the files are doing:
 - [Nomad_API.py](Nomad_API.py) This is copied from the [NOMAD programmatic tutorial](https://nomad-lab.eu/prod/v1/staging/docs/howto/programmatic/publish_python.html).
 - [nomad_upload.py](nomad_upload.py) This file translates our raw experiment data to the required YAML format defined by our schema and then uploads it. The two functions `data_to_zip` and `upload_zip` are the only entry points, the rest are helper functions.
 Note that nothing special is going on in `data_to_zip`, so don't fixate on figuring out the meaning of the function and its subfunctions. This is just a hardcoded way to generate valid NOMAD files in YAML format as defined by our schema. To see the output, look at [data.archive.yaml](data/data.archive.yaml).
-- [/schema](/schema) Contains our schema for you to look at. As stated, we upload this schema separately from the data and use its upload ID provided by NOMAD after publishing as a static reference in our generated data files. None of our scripts here use this file.
+- [/schema](/schema) Contains our schema for you to look at. As stated, we upload this schema separately from the data and use its upload ID provided by NOMAD after publishing as a static reference in our generated data files.
 - [/notebooks](/notebooks) Contains two standalone notebooks demonstrating how to download our data files once they have been published to NOMAD.
 - [/doc](/doc) Ignore.
 - [/data](/data) Contains our raw output data from sputtering experiments ([data.json](data/data.json)) and serves as a stash for different scripts to dump their temporary files.
@@ -67,11 +67,11 @@ Note that nothing special is going on in `data_to_zip`, so don't fixate on figur
 ## Remarks
 - Dumping the upload files locally before uploading is unnecessary/superfluous. Ideally, we would like to push data directly to NOMAD via the API. Uploading a ZIP file
 was the only thing that worked for us given NOMAD's documentation. Consider improving this.
-- Since we are deploying a self-driving lab, we are taking extra steps to automate the upload process. Specifically, in the setup we have in the lab, we automatically publish an entry via code in each experiment iteration.
-If this is not your intended use case, consider using NOMAD's drag-and-drop functionality and cutting out the automation steps.
+- Since we are deploying a self-driving lab, we are taking extra steps to automate the upload process. Specifically, we automatically publish each entry to NOMAD via code in each experiment iteration of the loop.
+If this is not your intended use case, consider cutting out the upload steps and using NOMAD's drag-and-drop functionality instead.
 - In the notebooks folder, I cover how data uploaded to NOMAD can be retrieved. While I was developing this, we transitioned from using a local database to NOMAD in our setup, and we only automated NOMAD publishing.
 We were not ready to automate data processing with NOMAD at the time, so I left the notebooks as examples of how to download our uploaded entries.
-NOMAD offers Python packages for parsing data, which might be worth investigating depending on your data processing demands.
+NOMAD offers Python packages for parsing data, which might be worth investigating if you plan on using the data dynamically in code *after* publishing it.
 - NOMAD is currently in development, so you're not working with a finished product. It can be useful to [join their discord](https://discord.gg/Gyzx3ukUw8) for any issues that are not addressed by their documentation.
 They are very helpful and quick to respond. 
 
