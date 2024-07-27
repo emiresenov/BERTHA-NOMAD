@@ -14,7 +14,7 @@ See `data_to_zip` in [nomad_upload.py](nomad_upload.py).
 3. We upload the zipped file to NOMAD. See `upload_zip` in [nomad_upload.py](nomad_upload.py).
 
 
-Note that this repo is an offline mockup of the actual lab setup. In the sputtering lab, all of this happens in real time during experimentation, with small deviations from what is shown here. 
+Note that this repo is an offline mockup of the actual lab setup. Here we only show how a single sample upload is handled. In the sputtering lab, all of this happens in real time during experimentation, with small deviations from what is shown here. 
 
 
 ## Getting started
