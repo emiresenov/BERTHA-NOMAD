@@ -1,6 +1,6 @@
 # Documentation for Jens & Co
 
-This repo shows how we incorporated NOMAD in our self-driving magnetron sputtering lab setup. You can use it as an example to supplement the [NOMAD documentation](https://link-url-here.org](https://nomad-lab.eu/prod/v1/staging/docs/)).
+This repo shows how we incorporated NOMAD in our self-driving magnetron sputtering lab setup. You can use it as an example to supplement the [NOMAD documentation](https://nomad-lab.eu/prod/v1/staging/docs/).
 
 
 ## The setup
@@ -22,7 +22,7 @@ Note that this repo is an offline mockup of the actual lab setup. Here we only s
 ### 1. Access NOMAD
 
 First, you need access to a NOMAD instance. You can either upload directly to the central NOMAD servers or set up a private instance, which becomes a NOMAD Oasis. 
-The [NOMAD documentation](https://link-url-here.org](https://nomad-lab.eu/prod/v1/staging/docs/)) should tell you everything you need to know.
+The [NOMAD documentation](https://nomad-lab.eu/prod/v1/staging/docs/) should tell you everything you need to know.
 
 ### 2. Define a schema (optional)
 
